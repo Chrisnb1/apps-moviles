@@ -3,10 +3,12 @@
     max-width: 25%;
     text-align: center;
     font-family: arial;
-    
   }
   
-
+article{
+  display: flex;
+  justify-content: space-evenly;
+}
   .card img{
       width: 30%;
       height: 30%;
