@@ -1,63 +1,158 @@
 /*  BODY */
 body {
-    /* background-color: aqua; */
-    margin: 0;
-    font-family: Verdana,sans-serif;
-    font-size: 15px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  /* background-color: aqua; */
+  margin: 0;
+  font-family: Verdana, sans-serif;
+  font-size: 15px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
- /* HEADER */
-.header{
-    text-align: center;
-    background-color: blue;
+/* HEADER */
+.header {
+  text-align: center;
+  background-color: #fa9741;
+}
+
+.title {
+  text-align: center;
+  margin-top: 3%;
+}
+
+.header img {
+  width: 10%;
+  height: 10%;
+  float: left;
+  margin-left: 5%;
 }
 
 /* NAVIGATOR (OPTIONS) */
-nav{
-    /* position: absolute; */
-    display: block;
-    width: 10%;
-    height: 100%;
-    position: fixed;
-    top: 75px;
-    text-align: center;
-    background-color: rebeccapurple;
+nav {
+  /* position: absolute; */
+  display: block;
+  width: 10%;
+  height: 100%;
+  position: fixed;
+  top: 110px;
+  text-align: center;
+  background-color: lightgray;
 }
 
 ul {
-    /* list-style-type: none; */
-    margin: 0;
-    padding: 0;
+  /* list-style-type: none; */
+  margin: 0;
+  padding: 0;
 }
 
 li a {
-    display: block;
-    padding: 8px 0 8px 0px;
-    text-decoration: none;
-    color: #000;
-    
+  display: block;
+  padding: 8px 0 8px 0px;
+  text-decoration: none;
+  color: #000;
 }
 
 /* Change the link color on hover */
-li a:hover {
-    background-color: #555;
-    color: white;
+li a.section-futbol:hover {
+  background-color: #5fc24e;
+  color: white;
+}
+
+li a.section-futbol {
+  background-color: #77f073;
+}
+
+li a.section-basquet:hover {
+  background-color: #c44e23;
+  color: white;
+}
+
+li a.section-basquet {
+  background-color: #fa4443;
+}
+
+li a.section-tenis:hover {
+  background-color: #e3bb44;
+  color: white;
+}
+
+li a.section-tenis {
+  background-color: #fad141;
+}
+
+li a.section-natacion:hover {
+  background-color: #45A4C4;
+  color: white;
+}
+
+li a.section-natacion {
+  background-color: #6dcafc;
 }
 
 /* MAIN (SECTIONS) */
-main{
-    margin-left: 10%;
-    text-align: center;
-    /* background-color: greenyellow; */
+main {
+  margin-left: 10%;
+  text-align: center;
+  margin-bottom: 50px;
+  /* background-color: greenyellow; */
+}
+
+.menu img {
+  width: 20%;
+  height: 10%;
 }
 
 /* FOOTER */
-.footer{
-    padding: 1em;
-    margin-top: auto;
-    z-index: 1;
-    text-align: center;
-    background-color: yellow;
+.footer {
+  padding: 1em;
+  margin-top: auto;
+  z-index: 1;
+  text-align: center;
+  background-color: yellow;
+}
+
+article {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  max-width: 25%;
+  max-height: 30%;
+  text-align: center;
+  font-family: arial;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  /* width: 30%;
+    height: 35%; */
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+}
+
+.card-futbol {
+  border: 1px solid #77f073;
+}
+
+.card-basquet {
+  border: 1px solid #fa4443;
+}
+
+.card-tenis {
+  border: 1px solid #fad141;
+}
+
+.card-natacion {
+  border: 1px solid #6dcafc;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.section-name {
+  text-align: justify;
+  margin-left: 8%;
 }
