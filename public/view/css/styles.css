@@ -11,7 +11,7 @@ body {
 /* HEADER */
 .header {
   text-align: center;
-  background-color: #fa9741;
+  background-color: yellow;
 }
 
 .title {
@@ -42,15 +42,21 @@ nav {
   width: 10%;
   height: 100%;
   position: fixed;
-  top: 110px;
+  top: 25%;
   text-align: center;
-  background-color: lightgray;
+  
 }
 
 .menu img{
     width: 20%;
     height: 10%;
 }
+
+.category{
+  margin-left: 15%;
+  margin-top: auto;
+}
+
 ul {
   /* list-style-type: none; */
   margin: 0;
@@ -58,8 +64,8 @@ ul {
 }
 
 li a {
-  display: block;
-  padding: 8px 0 8px 0px;
+  display: inline-block;
+  margin: 5% 0 5% 25%;
   text-decoration: none;
   color: #000;
 }
@@ -168,5 +174,5 @@ article {
 
 .section-name {
   text-align: justify;
-  margin-left: 8%;
+  margin-left: 10%;
 }
