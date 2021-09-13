@@ -25,10 +25,7 @@ body {
   float: left;
   margin-left: 5%;
 }
-.title{
-    text-align: center;
-    margin-top: 3%;
-}
+
 .header img{
     width: 10%;
     height: 10%;
@@ -46,6 +43,20 @@ nav {
   text-align: center;
   
 }
+
+.section a {
+  color: #000;
+  text-decoration: underline;
+  font-size: xx-large;
+  text-align: left;
+  margin-left: 5%;
+}
+
+.section a:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
 
 .menu img{
     width: 20%;
@@ -111,7 +122,7 @@ li a.section-natacion {
 /* MAIN (SECTIONS) */
 main {
   margin-left: 10%;
-  text-align: center;
+  /*text-align: center;*/
   margin-bottom: 50px;
   /* background-color: greenyellow; */
 }
@@ -136,11 +147,14 @@ article {
 }
 
 .card {
-  max-width: 25%;
+  /*max-width: 25%;*/
+  max-width: min-content;
   max-height: 30%;
   text-align: center;
   font-family: arial;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 1%;
+  margin-bottom: 5%;
 }
 
 .card img {
@@ -172,7 +186,3 @@ article {
   font-size: 22px;
 }
 
-.section-name {
-  text-align: justify;
-  margin-left: 10%;
-}
