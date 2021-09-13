@@ -6,7 +6,7 @@
 
 .image{
     float: left;
-    width: 100%;
+    width: min-content;
     height: 100%;
     display: block;
     margin-top: auto;
@@ -36,10 +36,25 @@
     padding: 0;
 }
 
+
 .futbol{
-    color: limegreen;
-    margin: 0;
-    padding: 0;
+    color: #5fc24e;
+
+}
+
+.basquet {
+    color: #fa4443;
+
+}
+
+.tenis {
+    color: #e3bb44;
+
+}
+
+.natacion {
+    color: #45a4c4;
+
 }
 
 .details {

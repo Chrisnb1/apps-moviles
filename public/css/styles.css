@@ -24,7 +24,7 @@ body {
 
 .title {
   text-align: center;
-  margin-top: 3%;
+  margin-top: 2%;
 }
 
 .logo {
@@ -45,11 +45,13 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
+  cursor: pointer;
 }
 
+
 .search{
-  left: 40%;
-  top: 5%;
+  left: 45%;
+  top: 11%;
   text-align: center;
   background: rgb(255, 255, 255);
   padding: 20px;
@@ -190,23 +192,23 @@ main {
 .menu a {
   text-align: center;
 }
-/* MAIN (SECTIONS) */
+/* MAIN (SECTIONS) 
 main {
   margin-left: 10%;
   text-align: center;
   margin-bottom: 50px;
 }
-
-article {
+*/
+.article {
   display: flex;
   justify-content: space-evenly;
 }
 
 .card {
   /*max-width: 25%;*/
-  max-width: min-content;
+  max-width: 30%;
   max-height: 30%;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-top: 1%;
@@ -272,12 +274,12 @@ h1.description{
 .sub-natacion{
   background-color: #6dcafc;
 }
-
+/*
 .section-name {
   font-size:50px;
   font-family: 'Bebas Neue', cursive;
 }
-
+*/
 
 .button {
   text-decoration: none;
