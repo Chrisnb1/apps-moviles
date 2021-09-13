@@ -14,16 +14,12 @@ body {
 .header {
   width: 100%;
   text-align: center;
-<<<<<<< HEAD:public/css/styles.css
-  background-color: yellow;
-=======
 
   background: linear-gradient(
     to right,
     #ebd722 0%,
     #e44e52 100%
   ); 
->>>>>>> ramachris:public/view/css/styles.css
 }
 
 .title {
@@ -38,14 +34,12 @@ body {
   margin-left: 5%;
 }
 
-<<<<<<< HEAD:public/css/styles.css
 .header img{
     width: 10%;
     height: 10%;
     float: left;
     margin-left: 5%;
 }
-=======
 .search, .cart{
   display: flex;
   justify-content: center;
@@ -81,13 +75,11 @@ body {
 }
 
 
->>>>>>> ramachris:public/view/css/styles.css
 /* NAVIGATOR (OPTIONS) */
 nav {
   position: absolute;
   width: 10%;
   height: 100%;
-<<<<<<< HEAD:public/css/styles.css
   position: fixed;
   top: 25%;
   text-align: center;
@@ -116,10 +108,8 @@ nav {
 .category{
   margin-left: 15%;
   margin-top: auto;
-=======
   margin-top: 8%;
   text-align: center;
->>>>>>> ramachris:public/view/css/styles.css
 }
 
 ul {
@@ -133,16 +123,12 @@ li{
 }
 
 li a {
-<<<<<<< HEAD:public/css/styles.css
-  display: inline-block;
   margin: 5% 0 5% 25%;
-=======
   display: block;
   border-bottom-right-radius: 5px;
   padding-top: 10px;
   padding-bottom: 20px;
   text-align: center;
->>>>>>> ramachris:public/view/css/styles.css
   text-decoration: none;
   font-family: 'Bebas Neue', cursive;
   color: #000;
@@ -186,7 +172,6 @@ li a.section-natacion {
   background-color: #6dcafc;
 }
 
-<<<<<<< HEAD:public/css/styles.css
 /* MAIN (SECTIONS) */
 main {
   margin-left: 10%;
@@ -195,8 +180,6 @@ main {
   /* background-color: greenyellow; */
 }
 
-=======
->>>>>>> ramachris:public/view/css/styles.css
 .menu img {
   width: 20%;
   height: 10%;
@@ -290,8 +273,6 @@ h1.description{
   background-color: #6dcafc;
 }
 
-<<<<<<< HEAD:public/css/styles.css
-=======
 .section-name {
   font-size:50px;
   font-family: 'Bebas Neue', cursive;
@@ -327,4 +308,3 @@ h1.description{
     #e44e52 100%
   ); 
 }
->>>>>>> ramachris:public/view/css/styles.css
