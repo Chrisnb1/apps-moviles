@@ -1,0 +1,224 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/*  BODY */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+
+/* HEADER */
+
+.header {
+    width: 100%;
+    background: linear-gradient( to right, #ebd722 0%, #e44e52 100%);
+}
+
+.title {
+    display: inline-block;
+    margin-top: 2.5%;
+    margin-left: 16%;
+    color: black;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.logo {
+    position: absolute;
+    width: 8%;
+    height: 15%;
+    float: left;
+    margin-bottom: 0;
+    margin-left: 5%;
+}
+
+.search,
+.cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.search {
+    left: 42%;
+    top: 4%;
+    padding: 1%;
+    padding-right: 20rem;
+    height: 40px;
+    border-radius: 40px;
+    text-align: 30px;
+    background: white;
+}
+
+.form-search {
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 18px;
+    float: left;
+    line-height: 30px;
+    color: #000;
+}
+
+.button-search {
+    position: relative;
+    left: 120%;
+}
+
+.cart {
+    margin-left: 20rem;
+    left: 65%;
+    top: 4%;
+    font-size: 40px;
+    -webkit-text-stroke: 2px black;
+    color: transparent;
+}
+
+.cart:hover {
+    -webkit-text-stroke: 2px white;
+}
+
+
+/*  MAIN */
+
+main {
+    text-align: center;
+}
+
+.sub-title {
+    margin: 30px 6%;
+    height: 60px;
+    border-radius: 5px;
+    margin-left: 6%;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.section-name {
+    font-size: 50px;
+    font-family: 'Bebas Neue', cursive;
+}
+
+a.sub-futbol,
+a.sub-basquet,
+a.sub-tenis,
+a.sub-natacion {
+    text-decoration: none;
+    color: black;
+}
+
+a.sub:hover {
+    color: white;
+}
+
+.sub-futbol {
+    background-color: #77f073;
+}
+
+.sub-basquet {
+    background-color: #fa4443;
+}
+
+.sub-tenis {
+    background-color: #fad141;
+}
+
+.sub-natacion {
+    background-color: #6dcafc;
+}
+
+.product {
+    display: flex;
+    text-align: justify;
+}
+
+.card {
+    display: flex;
+    width: 100%;
+    height: 30rem;
+    margin: 0 6% 3% 6%;
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-futbol {
+    border: 1px solid #77f073;
+}
+
+.card-basquet {
+    border: 1px solid #fa4443;
+}
+
+.card-tenis {
+    border: 1px solid #fad141;
+}
+
+.card-natacion {
+    border: 1px solid #6dcafc;
+}
+
+.image {
+    width: auto;
+    height: 100%;
+    display: block;
+    margin-top: 5rem;
+    margin-bottom: auto;
+}
+
+.image img {
+    width: 250px;
+    height: 250px;
+}
+
+.info {
+    float: left;
+    margin-left: 20%;
+    display: inline;
+    margin: 0%;
+    padding: 3%;
+}
+
+.info h1 {
+    font-size: 50px;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.price {
+    font-size: 40px;
+    font-family: 'Bebas Neue', cursive;
+    color: grey;
+}
+
+.futbol {
+    color: #5fc24e;
+}
+
+.basquet {
+    color: #fa4443;
+}
+
+.tenis {
+    color: #e3bb44;
+}
+
+.natacion {
+    color: #45a4c4;
+}
+
+.details {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* FOOTER */
+
+.footer {
+    padding: 1em;
+    margin-top: auto;
+    z-index: 1;
+    text-align: center;
+    background: linear-gradient( to right, #b222eb 0%, #e44e52 100%);
+}
