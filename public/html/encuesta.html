@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/encuesta.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Encuesta</title>
+</head>
+<body>
+    <header class="header">
+        <a href="/html/index.html"><img src="/img/logo.png" alt="logo" class="logo" /></a>
+        <h1 class="title">Tienda Online Todo Deportes</h1>
+        <!--<div class="search">
+            <input type="text" placeholder="Buscar un producto..." class="form-search" />
+            <a href="#" class="button-search">
+                <i class="material-icons">search</i>
+            </a>
+        </div>
+        <a href="#" class="cart-shop"><i class="material-icons cart">shopping_cart</i></a>-->
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <form id="form" novalidate>
+                    <div class="form-control">
+                        <label for="name">Nombre: </label>
+                        <input type="text" id="name" name="name" placeholder="Ingrese su nombre">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="surname">Apellido: </label>
+                        <input type="text" id="surname" name="surname" placeholder="Ingrese su apellido">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="birth">Fecha de Nacimiento: </label>
+                        <input type="date" name="birth" id="birth">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="gender">Sexo: </label>
+                        <input type="radio" name="gender" id="male">
+                        <label for="male">Masculino</label>
+                        <input type="radio" name="gender" id="female">
+                        <label for="female">Femenino</label>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="rating">Valoracion de la pagina: </label>
+                        <select name="pageRating" id="rating"><br>
+                            <option value="" disabled selected>Elija una opcion</option>
+                            <option value="lamentable">Lamentable</option>
+                            <option value="mala">Mala</option>
+                            <option value="podria ser mejor">Podria ser mejor</option>
+                            <option value="cumple con mis expectativas">Cumple con mis expectativas</option>
+                            <option value="me encanto">Me encanto</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="email">Email: </label>
+                        <input type="text" name="email" id="email" placeholder="example@mail.com">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="comment">Comentario: </label><br>
+                        <textarea name="comment" id="comment" cols="30" rows="5"></textarea><br>
+                        <input type="submit" value="Enviar">
+                        <input type="button" value="Cancelar">
+                        <input type="reset" value="Restablecer valores">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Todo Deportes - Grupo 1 (Nicolas Acuña - Christian Botta).</p>
+    </footer>
+
+    <script src="/js/encuesta.js"></script>
+</body>
+</html>
