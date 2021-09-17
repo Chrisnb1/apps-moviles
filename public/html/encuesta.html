@@ -53,22 +53,30 @@
 
                     <div class="form-control">
                         <label for="gender">Sexo: </label>
-                        <input type="radio" name="gender" id="male">
-                        <label for="male">Masculino</label>
-                        <input type="radio" name="gender" id="female">
-                        <label for="female">Femenino</label>
+                        <select name="gender" id="gender">
+                            <option value="1" disabled selected>Elija una opcion</option>
+                            <option value="male">Masculino</option>
+                            <option value="female">Femenino</option>
+                            <option value="other">Otro</option>
+                        </select>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                     </div>
 
                     <div class="form-control">
                         <label for="rating">Valoracion de la pagina: </label>
-                        <select name="pageRating" id="rating"><br>
-                            <option value="" disabled selected>Elija una opcion</option>
+                        <select name="rating" id="rating">
+                            <option value="1" disabled selected>Elija una opcion</option>
                             <option value="lamentable">Lamentable</option>
                             <option value="mala">Mala</option>
                             <option value="podria ser mejor">Podria ser mejor</option>
                             <option value="cumple con mis expectativas">Cumple con mis expectativas</option>
                             <option value="me encanto">Me encanto</option>
                         </select>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                     </div>
 
                     <div class="form-control">
@@ -84,7 +92,7 @@
                         <textarea name="comment" id="comment" cols="30" rows="5"></textarea><br>
                         <input type="submit" value="Enviar">
                         <input type="button" value="Cancelar">
-                        <input type="reset" value="Restablecer valores">
+                        <input type="reset" value="Restablecer">
                     </div>
                 </form>
             </div>
