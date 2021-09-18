@@ -5,6 +5,7 @@ const birth = document.getElementById('birth');
 const gender = document.getElementById('gender');
 const rating = document.getElementById('rating');
 const email = document.getElementById('email');
+const comment = document.getElementById('comment');
 
 const inputs = document.querySelectorAll('#form input');
 const selects = document.querySelectorAll('#form select');
@@ -113,7 +114,15 @@ function isEmail(email) {
 
 function sendForm(isValid){
     if (isValid) {
-        alert(`${nom}`);
+        alert(`
+        Nombre: ${nom.value}
+        \n Apellido: ${surname.value}
+        \n Fecha de nacimiento: ${birth.value}
+        \n Sexo: ${gender.value}
+        \n Valoracion de la pagina: ${rating.value}
+        \n Email: ${email.value}
+        \n Comentario: ${comment.value}
+            `);
     }
 }
 
