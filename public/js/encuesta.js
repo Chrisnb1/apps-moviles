@@ -6,9 +6,30 @@ const gender = document.getElementById('gender');
 const rating = document.getElementById('rating');
 const email = document.getElementById('email');
 
+const inputs = document.querySelectorAll('#form input');
+const selects = document.querySelectorAll('#form select');
+
+const btnCancel = document.getElementById('btn-cancel');
+btnCancel.addEventListener('click', () =>{
+    if (window.confirm("Desea volver a la pagina anterior?")) {
+        window.open("index.html", "Thanks for Visiting!");
+    }
+});
+
+inputs.forEach((input) =>{
+    input.addEventListener('keyup', checkInputs);
+    input.addEventListener('blur', checkInputs);
+});
+
+selects.forEach((select) =>{
+    select.addEventListener('blur', checkInputs);
+});
+
 form.addEventListener('submit', e => {
     e.preventDefault();
-    checkInputs();
+    let isValid = checkInputs();
+    sendForm(isValid);
+    
 });
 
 function checkInputs(){
@@ -18,50 +39,54 @@ function checkInputs(){
     const genderValue = gender.value.trim();
     const emailValue = email.value.trim();
     const ratingValue = rating.value.trim();
-
+    var valid = false;
     if (nameValue === '') {
-        setErrorFor(nom, 'El nombre no puede quedar vacio.');
+        valid = setErrorFor(nom, 'El nombre no puede quedar vacio.');
+        
     }else if (!onlyLetters(nameValue)) {
-        setErrorFor(nom, 'No se permiten numeros, ni caracteres especiales.');
+        valid = setErrorFor(nom, 'No se permiten numeros, ni caracteres especiales.');
+        
     }else{
-        setSuccessFor(nom);
+        valid = setSuccessFor(nom);
+        
     }
 
     if (surnameValue === '') {
-        setErrorFor(surname, 'El apellido no puede quedar vacio.');
+        valid = setErrorFor(surname, 'El apellido no puede quedar vacio.');
     }else if (!onlyLetters(surnameValue)) {
-        setErrorFor(surname, 'No se permiten numeros, ni caracteres especiales.');
+        valid = setErrorFor(surname, 'No se permiten numeros, ni caracteres especiales.');
     }
     else{
-        setSuccessFor(surname);
+        valid = setSuccessFor(surname);
     }
 
     if (birthValue === '') {
-        setErrorFor(birth, 'La fecha de nacimiento no puede quedar vacia.');
+        valid = setErrorFor(birth, 'La fecha de nacimiento no puede quedar vacia.');
     }else{
-        setSuccessFor(birth);
+        valid = setSuccessFor(birth);
     }
 
     if (genderValue === '1') {
-        setErrorFor(gender, 'El sexo no puede quedar vacio');
+        valid = setErrorFor(gender, 'El sexo no puede quedar vacio');
     }
     else{
-        setSuccessFor(gender);
+        valid = setSuccessFor(gender);
     }
 
     if (ratingValue === '1') {
-        setErrorFor(rating, 'Debe elegir una opcion.');
+        valid = setErrorFor(rating, 'Debe elegir una opcion.');
     }else{
-        setSuccessFor(rating);
+        valid = setSuccessFor(rating);
     }
 
     if (emailValue === '') {
-        setErrorFor(email, 'El mail no puede quedar vacio.');
+        valid = setErrorFor(email, 'El mail no puede quedar vacio.');
     }else if (!isEmail(emailValue)) {
-        setErrorFor(email, 'No ingreso un mail valido.');
+        valid = setErrorFor(email, 'No ingreso un mail valido.');
     }else{
-        setSuccessFor(email);
+        valid = setSuccessFor(email);
     }
+    return valid;
 }
 
 function setErrorFor(input, message){
@@ -69,11 +94,13 @@ function setErrorFor(input, message){
     const small = formControl.querySelector('small');
     formControl.className = 'form-control error';
     small.innerText = message;
+    return false;
 }
 
 function setSuccessFor(input){
     const formControl = input.parentElement;
     formControl.className = 'form-control success';
+    return true;
 }
 
 function onlyLetters(input){
@@ -82,6 +109,12 @@ function onlyLetters(input){
 
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+function sendForm(isValid){
+    if (isValid) {
+        alert(`${nom}`);
+    }
 }
 
 
