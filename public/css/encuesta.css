@@ -5,8 +5,31 @@
 	box-sizing: border-box;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient( to right, #ebd722 0%, #e44e52 100%);
+    border-bottom: 1px solid #b6a7a7;
+    box-shadow: 0 4px 20px 0 rgba(139, 105, 105, 0.2);
+	margin-bottom: 15px;
+}
+
 .title {
-    margin-left: 30%;
+    width: 100%;
+    position: relative;
+    text-align: center;
+	margin-right: 25%;
+    color: black;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.logo {
+    float: left;
+    width: 90px;
+    margin-left: 50px;
+    /*object-fit: cover;*/
 }
 
 .container {
@@ -15,6 +38,8 @@
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
 	width: 70%;
+	margin: auto;
+	padding: 10px;
 }
 
 .form {
@@ -28,14 +53,20 @@
 }
 
 .form-control label {
-	display: inline-block;
+	display: inline;
 	margin-bottom: 5px;
+	float: left;
+}
+
+#comment {
+	float: left;
+	width: 100%;
 }
 
 .form-control input,select {
 	border: 2px solid #f0f0f0;
 	border-radius: 4px;
-	display: block;
+	display: inline;
 	font-family: inherit;
 	font-size: 14px;
 	padding: 10px;
@@ -108,5 +139,10 @@ input[type=submit], input[type=button], input[type=reset] {
 	padding: 10px;
 	margin-top: 20px;
 	width: 30%;
+}
+
+input[type=submit]:hover, input[type=button]:hover, input[type=reset]:hover {
+	color: #8e44ad;
+	background-color: white;
 }
 
