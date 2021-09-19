@@ -11,10 +11,17 @@ const inputs = document.querySelectorAll('#form input');
 const selects = document.querySelectorAll('#form select');
 
 const btnCancel = document.getElementById('btn-cancel');
-btnCancel.addEventListener('click', () =>{
-    if (window.confirm("Desea volver a la pagina anterior?")) {
-        window.open("index.html", "Thanks for Visiting!");
-    }
+btnCancel.addEventListener('click', () => {
+    swal({
+        title: 'Cancelar',
+        text:'Desea volver a la pagina anterior?',
+        icon: 'warning',
+        buttons: {yes: 'Si', no: 'No'}})
+        .then((value) => {
+        if (value === 'yes') {
+            window.location.href = "index.html";
+        }
+    })
 });
 
 inputs.forEach((input) =>{
@@ -114,7 +121,7 @@ function isEmail(email) {
 
 function sendForm(isValid){
     if (isValid) {
-        alert(`
+        swal('Se envio el formulario', `
         Nombre: ${nom.value}
         \n Apellido: ${surname.value}
         \n Fecha de nacimiento: ${birth.value}
@@ -122,7 +129,7 @@ function sendForm(isValid){
         \n Valoracion de la pagina: ${rating.value}
         \n Email: ${email.value}
         \n Comentario: ${comment.value}
-            `);
+            `, 'success');
     }
 }
 
