@@ -173,7 +173,6 @@ li a.section-encuesta:hover {
     float: center;
     width: fit-content;
     height: 20px;
-    
 }
 
 .menu a {
@@ -313,5 +312,6 @@ h1.description {
     z-index: 1;
     text-align: center;
     background: linear-gradient( to right, #b222eb 0%, #e44e52 100%);
-    border-top: 1px solid #000000;
+    border-top: 1px solid #b6a7a7;
+    box-shadow: 20px 4px 8px 15px rgba(139, 105, 105, 0.2);
 }
