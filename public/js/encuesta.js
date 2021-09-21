@@ -1,4 +1,7 @@
+// formulario
 const form = document.getElementById("form");
+
+// Campos
 const nom = document.getElementById("name");
 const surname = document.getElementById("surname");
 const birth = document.getElementById("birth");
@@ -7,11 +10,148 @@ const rating = document.getElementById("rating");
 const email = document.getElementById("email");
 const comment = document.getElementById("comment");
 
-const inputs = document.querySelectorAll("#form input");
-const selects = document.querySelectorAll("#form select");
-
+// Botones
+const btnSend = document.getElementById("btn-send");
 const btnCancel = document.getElementById("btn-cancel");
-btnCancel.addEventListener("click", () => {
+const btnReset = document.getElementById("btn-reset");
+
+// Eventos
+eventListeners();
+
+function eventListeners() {
+    //Inicio de app
+    document.addEventListener("DOMContentLoaded", startApp);
+
+    // Campos del formulario
+    nom.addEventListener("blur", validate);
+    surname.addEventListener("blur", validate);
+    birth.addEventListener("blur", validate);
+    gender.addEventListener("blur", validate);
+    rating.addEventListener("blur", validate);
+    email.addEventListener("blur", validate);
+    comment.addEventListener("blur", validate);
+
+    // Boton enviar
+    btnSend.addEventListener("click", sendForm);
+
+    // Boton cancelar
+    btnCancel.addEventListener("click", cancelForm);
+
+    // Boton reestrablecer
+    btnReset.addEventListener("click", resetForm);
+}
+
+//Funciones
+function startApp() {
+    //deshabilitar el envio
+    btnSend.disabled = true;
+}
+
+//Valida que el campo no este vacio
+function validate() {
+    //Se valida la longitud del texto y que no este vacio
+    validateLong(this);
+
+    // Lista de errores
+    let mistakes = document.querySelectorAll(".error");
+
+    // habilitamos el boton cuando esten todos los campos llenos
+    if (
+        nom.value !== "" &&
+        surname.value !== "" &&
+        birth.value !== "" &&
+        gender.value !== "" &&
+        rating.value !== "" &&
+        email.value !== "" &&
+        comment.value !== ""
+    ) {
+        if (mistakes.length === 0) {
+            btnSend.disabled = false;
+        }
+    }
+}
+
+// Verifica la longitud del texto en los campos
+function validateLong(input) {
+    if (input.value.length > 0) {
+        //Validar solo carácteres
+        if (
+            input.name === "name" ||
+            input.name === "surname" ||
+            input.name === "comment"
+        ) {
+            validateCharacter(input);
+        } else if (input.name === "birth" || input.name === "gender" || input.name === "rating") { //Validar solo opciones
+            validateOption(input);
+        } else if (input.name === "email") { //Validar solo email
+            validateEmail(input);
+        }
+    } else {
+        setError(input, "campo vacio invalido");
+        input.classList.add("error");
+    }
+}
+
+// Verifica los carácteres
+function validateCharacter(input) {
+    let message = input.value;
+
+    if (!onlyLetters(message)) {
+        setError(input, "Carácteres inválidos.");
+        input.classList.add("error");
+    } else {
+        setSuccess(input);
+        input.classList.remove("error");
+    }
+}
+
+// Verifica las opciones
+function validateOption(input) {
+    let message = input.value;
+
+    if (message === "1" || message === "") {
+        setError(input, "Debe elegir una opción");
+    } else {
+        setSuccess(input);
+        input.classList.remove("error");
+    }
+}
+
+// Verifica que el email sea correcto
+function validateEmail(input) {
+    let message = input.value;
+
+    if (!isEmail(message)) {
+        setError(email, "No ingreso un email valido.");
+    } else {
+        setSuccess(input);
+        input.classList.remove("error");
+    }
+}
+
+// Se envia el formulario
+function sendForm(e) {
+    e.preventDefault();
+    swal(
+        "Se envio el formulario",
+        `
+    Nombre: ${nom.value}
+    \n Apellido: ${surname.value}
+    \n Fecha de nacimiento: ${birth.value}
+    \n Sexo: ${gender.value}
+    \n Valoracion de la pagina: ${rating.value}
+    \n Email: ${email.value}
+    \n Comentario: ${comment.value}
+        `,
+        "success"
+    ).then(() => {
+        backPage("index.html");
+    });
+}
+
+// Cancela el formulario
+function cancelForm(e) {
+    e.preventDefault();
     swal({
         title: "Cancelar",
         text: "Desea volver a la pagina anterior?",
@@ -22,82 +162,10 @@ btnCancel.addEventListener("click", () => {
             backPage("index.html");
         }
     });
-});
-
-inputs.forEach((input) => {
-    input.addEventListener("keyup", checkInputs);
-    input.addEventListener("blur", checkInputs);
-});
-
-selects.forEach((select) => {
-    select.addEventListener("blur", checkInputs);
-});
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let isValid = checkInputs();
-    sendForm(isValid);
-});
-
-function checkInputs() {
-    const nameValue = nom.value.trim();
-    const surnameValue = surname.value.trim();
-    const birthValue = birth.value.trim();
-    const genderValue = gender.value.trim();
-    const emailValue = email.value.trim();
-    const ratingValue = rating.value.trim();
-    var valid = false;
-    if (nameValue === "") {
-        valid = setErrorFor(nom, "El nombre no puede quedar vacio.");
-    } else if (!onlyLetters(nameValue)) {
-        valid = setErrorFor(
-            nom,
-            "No se permiten numeros, ni caracteres especiales."
-        );
-    } else {
-        valid = setSuccessFor(nom);
-    }
-
-    if (surnameValue === "") {
-        valid = setErrorFor(surname, "El apellido no puede quedar vacio.");
-    } else if (!onlyLetters(surnameValue)) {
-        valid = setErrorFor(
-            surname,
-            "No se permiten numeros, ni caracteres especiales."
-        );
-    } else {
-        valid = setSuccessFor(surname);
-    }
-
-    if (birthValue === "") {
-        valid = setErrorFor(birth, "La fecha de nacimiento no puede quedar vacia.");
-    } else {
-        valid = setSuccessFor(birth);
-    }
-
-    if (genderValue === "1") {
-        valid = setErrorFor(gender, "El sexo no puede quedar vacio");
-    } else {
-        valid = setSuccessFor(gender);
-    }
-
-    if (ratingValue === "1") {
-        valid = setErrorFor(rating, "Debe elegir una opcion.");
-    } else {
-        valid = setSuccessFor(rating);
-    }
-
-    if (emailValue === "") {
-        valid = setErrorFor(email, "El mail no puede quedar vacio.");
-    } else if (!isEmail(emailValue)) {
-        valid = setErrorFor(email, "No ingreso un mail valido.");
-    } else {
-        valid = setSuccessFor(email);
-    }
-    return valid;
 }
 
-function setErrorFor(input, message) {
+// Mostrar error
+function setError(input, message) {
     const formControl = input.parentElement;
     const small = formControl.querySelector("small");
     formControl.className = "form-control error";
@@ -105,42 +173,33 @@ function setErrorFor(input, message) {
     return false;
 }
 
-function setSuccessFor(input) {
+// Mostrar correcto
+function setSuccess(input) {
     const formControl = input.parentElement;
     formControl.className = "form-control success";
     return true;
 }
 
+//Resetea el formulario
+function resetForm(e) {
+    e.preventDefault();
+    form.reset();
+    btnSend.disabled = true;
+}
+
+// Vuelve a la pagina anterior
+function backPage(route) {
+    window.location.href = route;
+}
+
+// Solo letras
 function onlyLetters(input) {
     return /^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(input);
 }
 
+// Solo Email
 function isEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         email
     );
-}
-
-function sendForm(isValid) {
-    if (isValid) {
-        swal(
-            "Se envio el formulario",
-            `
-    Nombre: ${nom.value}
-    \n Apellido: ${surname.value}
-    \n Fecha de nacimiento: ${birth.value}
-    \n Sexo: ${gender.value}
-    \n Valoracion de la pagina: ${rating.value}
-    \n Email: ${email.value}
-    \n Comentario: ${comment.value}
-        `,
-            "success"
-        ).then(() => {
-            backPage("index.html")
-        });
-    }
-}
-
-function backPage(route) {
-    window.location.href = route;
 }
