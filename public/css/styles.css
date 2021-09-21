@@ -160,11 +160,19 @@ li a.section-natacion {
     background-color: #6dcafc;
 }
 
-.menu img {
+li a.section-encuesta {
+    background-color: #8e44ad;
+}
+
+li a.section-encuesta:hover {
+    background-color: #742f92;
+    color: white;
+}
+
+.menu li a img {
     float: center;
-    width: 20px;
+    width: fit-content;
     height: 20px;
-    object-fit: cover;
 }
 
 .menu a {
@@ -304,5 +312,6 @@ h1.description {
     z-index: 1;
     text-align: center;
     background: linear-gradient( to right, #b222eb 0%, #e44e52 100%);
-    border-top: 1px solid #000000;
+    border-top: 1px solid #b6a7a7;
+    box-shadow: 20px 4px 8px 15px rgba(139, 105, 105, 0.2);
 }
