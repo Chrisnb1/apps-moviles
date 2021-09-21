@@ -167,6 +167,16 @@ input[type=reset]:hover {
     background-color: white;
 }
 
+#btn-send[disabled] {
+    background-color: gray;
+    border: 2px solid gray;
+}
+
+#btn-send[disabled]:hover {
+    background-color: white;
+    border: 2px solid gray;
+    color: gray;
+}
 
 /* FOOTER */
 
