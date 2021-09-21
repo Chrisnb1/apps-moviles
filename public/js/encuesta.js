@@ -65,7 +65,7 @@ function validate() {
         birth.value !== "" &&
         gender.value !== "" &&
         rating.value !== "" &&
-        email.value !== "" &&
+        email.value !== "" 
         //comment.value !== ""
     ) {
         if (mistakes.length === 0) {
