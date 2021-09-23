@@ -14,14 +14,14 @@
 }
 
 .modal{
-    width: 40%;
-    height: 50%;
+    width: 60%;
+    height: 70%;
     background: #fff;
     position: relative;
     transition: transform 1s;
     transform: translateY(0);
     border-radius: 10px;
-    /*overflow: hidden;*/
+    
 }
 
 .modal-close{

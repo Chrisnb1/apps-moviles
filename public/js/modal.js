@@ -1,3 +1,5 @@
+// Modal implmentado con JavaScript puro
+
 let closeModal = document.querySelectorAll('.close')[0];
 let openModal = document.querySelectorAll('.cta')[0];
 let modal = document.querySelectorAll('.modal')[0];
@@ -29,3 +31,28 @@ window.addEventListener('click', function(e){
         }, 850);
     }
 });
+
+
+// Modal implementado con JQuery
+/*
+$(document).ready(function(){
+    $('.cta').click(function(e){
+        e.preventDefault();
+        $('.modal-conteiner').css({
+            "opacity": "1",
+            "visibility": "visible"
+        });
+        $('.modal').toggleClass('modal-close');
+    });
+
+    $('.close').click(function(){
+        $('.modal').toggleClass('modal-close');
+        setTimeout(function(){
+            $('.modal-container').css({
+                "opacity": "0",
+                "visibility": "hidden"
+            })
+        }, 850);
+    })
+});
+*/

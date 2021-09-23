@@ -1,0 +1,30 @@
+.table {
+    width: 100%;
+}
+
+.btn-add {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: #47cc47;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-remove {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: #c44a4a;
+    color: #fff;
+    cursor: pointer;
+    font-size: large;
+}
+
+#vaciar-carrito {
+    display: inline-block;
+    background: #c44a4a;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px;
+}
