@@ -24,12 +24,15 @@ function eventListeners() {
 
     // Campos del formulario
     nom.addEventListener("blur", validate);
+    nom.addEventListener("keyup", validate);
     surname.addEventListener("blur", validate);
+    surname.addEventListener("keyup", validate);
     birth.addEventListener("blur", validate);
     gender.addEventListener("blur", validate);
     rating.addEventListener("blur", validate);
     email.addEventListener("blur", validate);
-    comment.addEventListener("blur", validate);
+    email.addEventListener("keyup", validate);
+    //comment.addEventListener("blur", validate);
 
     // Boton enviar
     btnSend.addEventListener("click", sendForm);
@@ -62,8 +65,8 @@ function validate() {
         birth.value !== "" &&
         gender.value !== "" &&
         rating.value !== "" &&
-        email.value !== "" &&
-        comment.value !== ""
+        email.value !== "" 
+        //comment.value !== ""
     ) {
         if (mistakes.length === 0) {
             btnSend.disabled = false;
@@ -77,8 +80,8 @@ function validateLong(input) {
         //Validar solo carácteres
         if (
             input.name === "name" ||
-            input.name === "surname" ||
-            input.name === "comment"
+            input.name === "surname" 
+            //input.name === "comment"
         ) {
             validateCharacter(input);
         } else if (input.name === "birth" || input.name === "gender" || input.name === "rating") { //Validar solo opciones
