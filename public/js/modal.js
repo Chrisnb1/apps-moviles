@@ -55,6 +55,21 @@ $(document).ready(function() {
                 "visibility": "hidden"
             })
         }, 850);
-    })
+    });
 
+    // Cerrar modal al hacer click fuera del modal
+    /*
+    $(window).click(function(e){
+        let modalC = $('.modal-container')
+        if (e.target == modalC) {
+            $('.modal').toggleClass('modal-close');
+            setTimeout(function() {
+                $('.modal-container').css({
+                    "opacity": "0",
+                    "visibility": "hidden"
+                })
+            }, 850);
+        }
+    })
+        */
 });

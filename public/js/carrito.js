@@ -1,36 +1,39 @@
 // Archivo JavaScript para la implementacion del carrito de compras
 
+/*
 const cards = document.getElementById('cards');
 const items = document.getElementById('items');
 const footerTable = document.getElementById('footer');
 const templateFooter = document.getElementById('template-footer').content;
 const templateCarrito = document.getElementById('template-carrito').content;
+*/
 
-/*
 const cards = $('#cards');
 const items = $('#items');
 const footerTable = $('#footer');
-const templateFooter = $('#template-footer').content;
-const templateCarrito = $('#template-carrito').content;
-*/
+const templateFooter = $('#template-footer').contents();
+const templateCarrito = $('#template-carrito').contents();
+
 const fragment = document.createDocumentFragment();
 
 let carrito = {}
 
 // Eventos con jquery
-/*
+
 $(document).ready(function(){
     cards.click(e => { addCarrito(e)});
     items.click(e => { btnAumentarDisminuir(e)});
 });
-*/
 
+/*
 // eventos
 cards.addEventListener('click', e => { addCarrito(e) });
 items.addEventListener('click', e => { btnAumentarDisminuir(e) });
+*/
 
 // Agregar al carrito
 const addCarrito = e => {
+    
     if (e.target.classList.contains('addCarrito')) {
         setCarrito(e.target.parentElement);
     }
@@ -56,25 +59,29 @@ const setCarrito = item => {
 const pintarCarrito = () => {
     items.innerHTML = '';
     Object.values(carrito).forEach(producto => {
-        //$('#template-carrito td').eq(0).textContent = producto.title;
-        //$('#template-carrito td').eq(1).textContent = producto.title;
-        //$('#template-carrito #precioTotal').textContent = producto.precio * producto.cantidad;
-        templateCarrito.querySelectorAll('td')[0].textContent = producto.title;
+        $('#template-carrito td').contents().eq(0).text(producto.title)  ;
+        $('#template-carrito td').contents().eq(1).text(producto.cantidad)  ;
+        $('#template-carrito #precioTotal').contents().text(producto.precio * producto.cantidad)  ;
+        /*templateCarrito.querySelectorAll('td')[0].textContent = producto.title;
         templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad;
-        templateCarrito.querySelector('#precioTotal').textContent = producto.precio * producto.cantidad;
+        templateCarrito.querySelector('#precioTotal').textContent = producto.precio * producto.cantidad;*/
 
         // Botones
-        //$('#template-carrito .btn-add').dataset.id = producto.id;
-        //$('#template-carrito .btn-remove').dataset.id = producto.id;
+        $('#template-carrito .btn-add').attr('dataset-id', producto.id);
+        $('#template-carrito .btn-remove').attr('dataset-id', producto.id);
 
-        templateCarrito.querySelector('.btn-add').dataset.id = producto.id;
-        templateCarrito.querySelector('.btn-remove').dataset.id = producto.id;
+        //templateCarrito.querySelector('.btn-add').dataset.id = producto.id;
+        //templateCarrito.querySelector('.btn-remove').dataset.id = producto.id;
 
-        const clone = templateCarrito.cloneNode(true);
-        fragment.appendChild(clone);
+        //const clone = templateCarrito.cloneNode(true);
+        
+        const clone = $('#template-carrito').clone(true);
+        fragment.append(clone)
+        //fragment.appendChild(clone);
     });
-    items.appendChild(fragment);
-
+    //items.appendChild(fragment);
+    items.append(fragment);
+    console.log(templateCarrito)
     pintarFooter();
 }
 
@@ -92,26 +99,33 @@ const pintarFooter = () => {
     const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0);
     const nPrecio = Object.values(carrito).reduce((acc, { cantidad, precio }) => acc + cantidad * precio, 0);
 
-    templateFooter.querySelectorAll('td')[0].textContent = nCantidad;
-    templateFooter.querySelector('span').textContent = nPrecio;
+    //templateFooter.querySelectorAll('td')[0].textContent = nCantidad;
+    //templateFooter.querySelector('span').textContent = nPrecio;
 
-    const clone = templateFooter.cloneNode(true);
-    fragment.appendChild(clone);
+    $('#template-footer td').eq(0).text(nCantidad);
+    $('#template-footer span').text(nPrecio);
 
-    footerTable.appendChild(fragment);
+    const clone = $('#template-footer').clone(true);
+    fragment.append(clone);
+    footerTable.append(fragment);
+    //const clone = templateFooter.cloneNode(true);
+    //fragment.appendChild(clone);
 
-    /*const vaciarTodo = $('#vaciar-carrito');
+    //footerTable.appendChild(fragment);
+
+    const vaciarTodo = $('#vaciar-carrito');
     vaciarTodo.click(function(){
         carrito = {};
         pintarCarrito();
-    });*/
+    });
 
+    /*
     const vaciarTodo = document.getElementById('vaciar-carrito');
     vaciarTodo.addEventListener('click', () => {
         carrito = {};
         pintarCarrito();
     })
-
+    */
 }
 
 const btnAumentarDisminuir = e => {
