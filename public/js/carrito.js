@@ -1,166 +1,172 @@
-// Archivo JavaScript para la implementacion del carrito de compras
+// Variables
+const cards = $("#cards");
+const items = $("#items");
+const footerTable = $("#footer");
+const addButtom = $(".addCart");
+const cleanButtom = $("#cleanCart");
 
-const cards = document.getElementById('cards');
-const items = document.getElementById('items');
-const footerTable = document.getElementById('footer');
-const templateFooter = document.getElementById('template-footer').content;
-const templateCarrito = document.getElementById('template-carrito').content;
-
-/*
-const cards = $('#cards');
-const items = $('#items');
-const footerTable = $('#footer');
-const templateFooter = $('#template-footer').content;
-const templateCarrito = $('#template-carrito').content;
-*/
-const fragment = document.createDocumentFragment();
-
-let carrito = {}
-
-// Eventos con jquery
-/*
-$(document).ready(function(){
-    cards.click(e => { addCarrito(e)});
-    items.click(e => { btnAumentarDisminuir(e)});
-});
-*/
-
-// eventos
-cards.addEventListener('click', e => { addCarrito(e) });
-items.addEventListener('click', e => { btnAumentarDisminuir(e) });
-
-// Agregar al carrito
-const addCarrito = e => {
-    if (e.target.classList.contains('addCarrito')) {
-        setCarrito(e.target.parentElement);
-    }
-    e.stopPropagation();
-}
-
-const setCarrito = item => {
-    const producto = {
-        title: item.querySelector('.description').textContent,
-        precio: item.querySelector('.prc').textContent,
-        id: item.querySelector('.addCarrito').dataset.id,
-        cantidad: 1
-    }
-    console.log(producto)
-    if (carrito.hasOwnProperty(producto.id)) {
-        producto.cantidad = carrito[producto.id].cantidad + 1
-    }
-    carrito[producto.id] = {...producto };
-
-    pintarCarrito();
-}
-
-const pintarCarrito = () => {
-    items.innerHTML = '';
-    Object.values(carrito).forEach(producto => {
-        //$('#template-carrito td').eq(0).textContent = producto.title;
-        //$('#template-carrito td').eq(1).textContent = producto.title;
-        //$('#template-carrito #precioTotal').textContent = producto.precio * producto.cantidad;
-        templateCarrito.querySelectorAll('td')[0].textContent = producto.title;
-        templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad;
-        templateCarrito.querySelector('#precioTotal').textContent = producto.precio * producto.cantidad;
-
-        // Botones
-        //$('#template-carrito .btn-add').dataset.id = producto.id;
-        //$('#template-carrito .btn-remove').dataset.id = producto.id;
-
-        templateCarrito.querySelector('.btn-add').dataset.id = producto.id;
-        templateCarrito.querySelector('.btn-remove').dataset.id = producto.id;
-
-        const clone = templateCarrito.cloneNode(true);
-        fragment.appendChild(clone);
-    });
-    items.appendChild(fragment);
-
-    pintarFooter();
-}
-
-const pintarFooter = () => {
-    footerTable.innerHTML = '';
-
-    if (Object.keys(carrito).length === 0) {
-        footer.innerHTML = `
-        <th scope="row" colspan="5">Carrito vacío - comience a comprar! js</th>
-        `
-        return
-    }
-
-    // Sumar cantidad y sumar totales 
-    const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0);
-    const nPrecio = Object.values(carrito).reduce((acc, { cantidad, precio }) => acc + cantidad * precio, 0);
-
-    templateFooter.querySelectorAll('td')[0].textContent = nCantidad;
-    templateFooter.querySelector('span').textContent = nPrecio;
-
-    const clone = templateFooter.cloneNode(true);
-    fragment.appendChild(clone);
-
-    footerTable.appendChild(fragment);
-
-    /*const vaciarTodo = $('#vaciar-carrito');
-    vaciarTodo.click(function(){
-        carrito = {};
-        pintarCarrito();
-    });*/
-
-    const vaciarTodo = document.getElementById('vaciar-carrito');
-    vaciarTodo.addEventListener('click', () => {
-        carrito = {};
-        pintarCarrito();
-    })
-
-}
-
-const btnAumentarDisminuir = e => {
-    if (e.target.classList.contains('btn-add')) {
-        const producto = carrito[e.target.dataset.id];
-        producto.cantidad++;
-        carrito[e.target.dataset.id] = {...producto }
-        pintarCarrito();
-    }
-
-    if (e.target.classList.contains('btn-remove')) {
-        const producto = carrito[e.target.dataset.id];
-        producto.cantidad--;
-        if (producto.cantidad === 0) {
-            delete carrito[e.target.dataset.id];
-        } else {
-            carrito[e.target.dataset.id] = {...producto }
-        }
-        pintarCarrito();
-    }
-    e.stopPropagation();
-}
-
+let cart = [];
 
 // Jquery evento agregar a carrito/botones
 $(document).ready(function() {
 
-    // Click en boton "añadir a carrito"
-    $('.addCarrito').click(function(e) {
-        e.preventDefault();
+    addButtom.click(addButtomCart);
+    cleanButtom.click(cleanCart);
+});
 
-        //Agrego un clase para añadir y quitar los efectos al hacer click
-        var addClass = $(this).hasClass('test');
+// Click en boton "añadir a carrito"
+function addButtomCart() {
+    //Agrego un clase para añadir y quitar los efectos al hacer click
+    var addClass = $(this).hasClass("test");
 
-        //Si existe, quito clases y efectos
-        if (addClass) {
-            $(this).removeClass('test');
-            $(this).parent('div').css('background-color', '');
-            $(this).siblings('img').css('opacity', 1);
-            $(this).siblings('h1').css('opacity', 1);
-            $(this).siblings('p').css('opacity', 1);
-            $(this).css('opacity', 1);
-        } else { //Sino, agrego clase y efectos
-            $(this).addClass('test');
-            $(this).parent('div').css('background-color', '	ghostwhite');
-            $(this).siblings('img').css('opacity', 0.4);
-            $(this).siblings('h1').css('opacity', 0.4);
-            $(this).siblings('p').css('opacity', 0.4);
-            $(this).css('opacity', 0.4);
+    //Si existe, quito clases y efectos
+    if (addClass) {
+        $(this).removeClass("test");
+        $(this).parent("div").css("background-color", "");
+        $(this).siblings("img").css("opacity", 1);
+        $(this).siblings("h1").css("opacity", 1);
+        $(this).css("opacity", 1);
+    } else {
+        //Sino, agrego clase y efectos
+        $(this).addClass("test");
+        $(this).parent("div").css("background-color", "	ghostwhite");
+        $(this).siblings("img").css("opacity", 0.4);
+        $(this).siblings("h1").css("opacity", 0.4);
+        $(this).siblings("p").css("opacity", 0.4);
+        $(this).css("opacity", 0.4);
+    }
+
+    addActionCart(this);
+}
+
+// Vacia el carrito
+// function cleanCart() {
+//     console.log("enttro aca");
+//     cart = [];
+//     // hidetextFooter(false);
+// }
+
+// Añade item al carrito
+function addActionCart(item) {
+    let id = $(item).attr("data-id");
+
+    // var long = cart.longht;
+
+    // Si existe, es decir, si se clickea nuevamente en el producto
+    if (exists(id)) {
+        console.log("Ya Existe");
+        cart = notDuplicate(cart, id);
+        eliminateItemCart(id);
+    } else if (!exists(id)) { // sino
+        console.log("Nuevo producto");
+        product = createProduct(item);
+        cart.push(product);
+        setCart(product);
+    }
+
+    console.log(cart);
+
+
+}
+
+// Verifica si existe el item en el carrito
+function exists(id) {
+    let num = 0;
+    // debugger
+    cart.forEach((product) => {
+        if (product.id === id) {
+            num = 1;
         }
-    })
-})
+    });
+
+    return num === 1;
+}
+
+// Discrimina el item por id
+function notDuplicate(array, id) {
+    return array.filter(function(product) {
+        return product.id !== id;
+    });
+}
+
+// Crea el objeto producto referido al item clickeado
+function createProduct(item) {
+    let id = $(item).attr("data-id");
+    let parent = $(item).parent("div");
+    let product = {
+        img: parent.find("img").attr("src"),
+        title: parent.find("h1").text(),
+        precio: parent.find("p").text(),
+        id: id,
+    };
+
+    return product;
+}
+
+// Muestra en el carrito
+function setCart(product) {
+
+    if (searchItemCart(product.id)) {
+        console.log("Entro aca");
+        return;
+    } else {
+        var newRow =
+            `<tr id=${product.id}> ` +
+            "<td>" +
+            '<img src=" ' + product.img + '" width="100px" height="100px"/>' +
+            "</td>" +
+            "<td>" +
+            product.title +
+            "</td>" +
+            "<td>" +
+            product.precio +
+            "</td>" +
+            "</tr>";
+
+        $(newRow).appendTo(items);
+        // hidetextFooter(true);
+        calculateTotal();
+        // showPriceTotalFooter();
+    }
+
+}
+
+// Busca item en el carrito (ventana modal)
+function searchItemCart(id) {
+    return $('tr#' + id).lenght;
+}
+
+// Elimina item en el carrito (ventana modal)
+function eliminateItemCart(id) {
+    $('tr#' + id).remove();
+}
+
+// Calcula el precio total
+function calculateTotal() {
+    let total = 0;
+    cart.forEach((product) => {
+        price = product.precio.replace("$", "");
+        total += parseInt(price);
+    });
+
+    return total;
+}
+
+// Muestra el precio total
+function showPriceTotalFooter() {
+    var newRow =
+        "<tr>" +
+        "<th scope='row' colspan='1'>" + "Precio Total = $ " + calculateTotal() + "</th>"
+    "</tr>";
+
+    $(newRow).appendTo(footerTable);
+}
+
+
+// Oculta el texto de "carrito vacio"
+function hidetextFooter(option) {
+    let bool = option;
+    if (bool) {
+        footerTable.hide();
+    }
+}
