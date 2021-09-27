@@ -61,10 +61,10 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th scope="col">Imagen</th>
                                 <th scope="col">Item</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col">Acción</th>
-                                <th scope="col">Total</th>
+                                <th scope="col">Precio Unidad</th>
+                                <!-- <th scope="col">Precio Total</th> -->
                             </tr>
                         </thead>
 
@@ -72,7 +72,7 @@
 
                         <tfoot>
                             <tr id="footer">
-                                <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                                <!-- <th scope="row" colspan="5" id="footer-text">Carrito vacío - comience a comprar!</th> -->
                             </tr>
                         </tfoot>
 
@@ -81,16 +81,14 @@
             </div>
         </div>
 
-        <template id="template-footer">
+        <!-- <template id="template-footer">
             <th scope="row" colspan="1">Total productos</th>
-            <td>10</td>
             <td>
-                <button id="vaciar-carrito">Vaciar todo</button>
+                <button id="cleanCart">Vaciar todo</button>
             </td>
-            <td class="font-weight-bold">$ <span>500</span></td>
-        </template>
+        </template> -->
 
-        <template id="template-carrito">
+        <!-- <template id="template-carrito">
             <tr>  
                 <td>producto</td>
                 <td>1</td>
@@ -100,7 +98,7 @@
                 </td>
                 <td>$ <span id="precioTotal">500</span></td>
             </tr>
-        </template>
+        </template> -->
         <div id="cards">
             <section id="section-futbol" class="section-1">
                 <div class="sub-title sub-futbol">
@@ -113,19 +111,19 @@
                         <img src="/img/botines-de-futbol-puma-ultra.jpg" alt="botines-de-futbol-puma-ultra" />
                         <h1 class="description">Botines Puma Ultra</h1>
                         <p class="price">$ <span class="prc">9000</span></p>
-                        <button class="button addCarrito" data-id="1">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
+                        <button class="button addCart" data-id="1">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
                     </div>
                     <div class="card card-futbol">
                         <img src="/img/pelota-de-argentina-adidas.jpg" alt="pelota-de-argentina-adidas" />
                         <h1 class="description">Pelota Adidas Argentina</h1>
                         <p class="price">$ <span class="prc">7000</span> </p>
-                        <button class="button addCarrito" data-id="2">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
+                        <button class="button addCart" data-id="2">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
                     </div>
                     <div class="card card-futbol">
                         <img src="/img/camiseta-de-argentina-adidas.jpg" alt="camiseta-de-argentina-adidas" />
                         <h1 class="description">Camiseta Seleccion Argentina</h1>
                         <p class="price">$ <span class="prc">10890</span></p>
-                        <button class="button addCarrito" data-id="3">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
+                        <button class="button addCart" data-id="3">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
                     </div>
                 </article>
             </section>
@@ -140,19 +138,19 @@
                         <img src="/img/zapatilla-de-basquet.jpg" alt="zapatilla-de-basquet" />
                         <h1 class="description">Zapatilla de Basquet</h1>
                         <p class="price">$8.499</p>
-                        <button class="button addCarrito" data-id="4">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
+                        <button class="button addCart" data-id="4">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
                     </div>
                     <div class="card card-basquet">
                         <img src="/img/pelota-basquet.jpg" alt="pelota-basquet" />
                         <h1 class="description">Pelota de Basquet</h1>
                         <p class="price">$2.940</p>
-                        <button class="button addCarrito" data-id="5">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
+                        <button class="button addCart" data-id="5">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
                     </div>
                     <div class="card card-basquet">
                         <img src="/img/aro-de-basquet-profesional.jpg" alt="aro-de-basquet-profesional" />
                         <h1 class="description">Aro de Basquet profesional</h1>
                         <p class="price">$5.880</p>
-                        <button class="button addCarrito" data-id="6">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
+                        <button class="button addCart" data-id="6">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
                     </div>
                 </article>
             </section>
@@ -168,19 +166,19 @@
                         <img src="/img/muñequera-topper-tenis.jpg" alt="raqueta-padel" />
                         <h1 class="description">Muñequera Topper</h1>
                         <p class="price">$768.99</p>
-                        <button class="button addCarrito" data-id="7">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
+                        <button class="button addCart" data-id="7">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
                     </div>
                     <div class="card card-tenis">
                         <img src="/img/pelota-prince.jpg" alt="pelota-wilson" />
                         <h1 class="description">Tubo de Pelota x3 Prince</h1>
                         <p class="price">$1.080</p>
-                        <button class="button addCarrito" data-id="8">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
+                        <button class="button addCart" data-id="8">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
                     </div>
                     <div class="card card-tenis">
                         <img src="/img/raqueta-tenis.jpg" alt="raqueta-tenis" />
                         <h1 class="description">Raqueta Wilson</h1>
                         <p class="price">$6.240</p>
-                        <button class="button addCarrito" data-id="9">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
+                        <button class="button addCart" data-id="9">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
                     </div>
                 </article>
             </section>
@@ -195,19 +193,19 @@
                         <img src="/img/antiparras-natacion.jpg" alt="antiparras-natacion" />
                         <h1 class="description">Antiparras Arena</h1>
                         <p class="price">$3.710</p>
-                        <button class="button addCarrito" data-id="10">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
+                        <button class="button addCart" data-id="10">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
                     </div>
                     <div class="card card-natacion">
                         <img src="/img/gorro-natacion.jpg" alt="gorro-natacion" />
                         <h1 class="description">Gorro Speedo</h1>
                         <p class="price">$399.99</p>
-                        <button class="button addCarrito" data-id="11">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
+                        <button class="button addCart" data-id="11">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
                     </div>
                     <div class="card card-natacion">
                         <img src="/img/patas-de-rana-natacion.jpg" alt="patas-natacion" />
                         <h1 class="description">Patas de Rana Arena</h1>
                         <p class="price">$2.355</p>
-                        <button class="button addCarrito" data-id="12">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
+                        <button class="button addCart" data-id="12">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>
                     </div>
                 </article>
             </section>
