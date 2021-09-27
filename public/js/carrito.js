@@ -1,10 +1,9 @@
 // Variables
 const cards = $("#cards");
 const items = $("#items");
-const footerTable = $("#footer");
 const addButtom = $(".addCart");
-const cleanButtom = $("#cleanCart");
 
+// Lista del carrito
 let cart = [];
 
 // Jquery evento agregar a carrito/botones
@@ -36,15 +35,9 @@ function addButtomCart() {
         $(this).css("opacity", 0.4);
     }
 
+    //Accion dentro del modal
     addActionCart(this);
 }
-
-// Vacia el carrito
-// function cleanCart() {
-//     console.log("enttro aca");
-//     cart = [];
-//     // hidetextFooter(false);
-// }
 
 // Añade item al carrito
 function addActionCart(item) {
@@ -113,7 +106,7 @@ function setCart(product) {
         var newRow =
             `<tr id=${product.id}> ` +
             "<td>" +
-            '<img src=" ' + product.img + '" width="100px" height="100px"/>' +
+            '<img src=" ' + product.img + '" width="75px" height="75px"/>' +
             "</td>" +
             "<td>" +
             product.title +
@@ -124,9 +117,7 @@ function setCart(product) {
             "</tr>";
 
         $(newRow).appendTo(items);
-        // hidetextFooter(true);
         calculateTotal();
-        // showPriceTotalFooter();
     }
 
 }
@@ -149,24 +140,6 @@ function calculateTotal() {
         total += parseInt(price);
     });
 
+    $('#total').text('$ ' + total);
     return total;
-}
-
-// Muestra el precio total
-function showPriceTotalFooter() {
-    var newRow =
-        "<tr>" +
-        "<th scope='row' colspan='1'>" + "Precio Total = $ " + calculateTotal() + "</th>"
-    "</tr>";
-
-    $(newRow).appendTo(footerTable);
-}
-
-
-// Oculta el texto de "carrito vacio"
-function hidetextFooter(option) {
-    let bool = option;
-    if (bool) {
-        footerTable.hide();
-    }
 }

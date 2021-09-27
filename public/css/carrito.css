@@ -1,17 +1,18 @@
+.modal-container {
+    overflow-y: scroll;
+}
+
+.modal {
+    opacity: 0.8;
+}
+
 .table {
     width: 100%;
+    background-color: white;
 }
 
-.btn-add {
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    background: #47cc47;
-    color: #fff;
-    cursor: pointer;
-}
 
-.btn-remove {
+/* .btn-remove {
     display: inline-block;
     width: 25px;
     height: 25px;
@@ -27,4 +28,24 @@
     color: #fff;
     cursor: pointer;
     padding: 5px;
+} */
+
+thead {
+    height: 50px;
+    background-color: #654ac4;
+    border-bottom: solid 2px rgb(119, 119, 119);
+    color: white;
+}
+
+tr,
+td {
+    padding: 25px;
+}
+
+tfoot {
+    background-color: #ddd;
+}
+
+#total {
+    text-align: center;
 }
