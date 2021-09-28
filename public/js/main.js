@@ -11,7 +11,7 @@ $(document).ready(function(){
         type: "GET",
         dataType: "json",
         success: function(datos){
-            console.log(datos);
+            
             $.each(datos, function(index, obj){
                 let producto = 
                 `<div class="card card-${obj.section}">
