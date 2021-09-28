@@ -232,7 +232,8 @@ a.sub:hover {
 
 .card {
     max-width: 25%;
-    max-height: 30%;
+    height: fit-content;
+    max-height: fit-content;
     padding-bottom: 40px;
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -247,6 +248,8 @@ h1.description {
     width: 50%;
     height: 50%;
     object-fit: cover;
+    padding-top: 25px;
+    cursor: pointer;
 }
 
 .card-futbol {

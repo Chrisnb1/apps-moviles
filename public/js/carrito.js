@@ -24,7 +24,8 @@ function addButtomCart() {
         $(this).parent("div").css("background-color", "");
         $(this).siblings("img").css("opacity", 1);
         $(this).siblings("h1").css("opacity", 1);
-        $(this).siblings("button").css("opacity", 1);
+        $(this).siblings("p").css("opacity", 1);
+        //$(this).siblings("button").css("opacity", 1);
         $(this).css("opacity", 1);
     } else {
         //Sino, agrego clase y efectos
@@ -33,7 +34,7 @@ function addButtomCart() {
         $(this).siblings("img").css("opacity", 0.4);
         $(this).siblings("h1").css("opacity", 0.4);
         $(this).siblings("p").css("opacity", 0.4);
-        $(this).siblings("button").css("opacity", 0.4);
+        //$(this).siblings("button").css("opacity", 0.4);
         $(this).css("opacity", 0.4);
     }
 
@@ -132,6 +133,7 @@ function searchItemCart(id) {
 // Elimina item en el carrito (ventana modal)
 function eliminateItemCart(id) {
     $('tr#' + id).remove();
+    calculateTotal();
 }
 
 // Calcula el precio total
