@@ -13,8 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/css/modal.css">
-    <link rel="stylesheet" href="/css/carrito.css">
+
     <link rel="shortcut icon" href="/img/logo.png" type="image/png">
 
     <title>Todo Deportes</title>
@@ -53,132 +52,46 @@
     </nav>
     <main class="main">
 
-        <div class="modal-container">
-            <div class="modal modal-close">
-                <p class="close">X</p>
-                <div class="modal-textos">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">IMANGEN</th>
-                                <th scope="col">ITEM</th>
-                                <th scope="col">PRECIO</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="items"></tbody>
-
-                        <tfoot>
-                            <tr class="table-footer" id="footer">
-                                <th scope='col'></th>
-                                <th scope='col' align='center'>PRECIO TOTAL:</th>
-                                <th scope='col' id="total"></th>
-                            </tr>
-                        </tfoot>
-
-                    </table>
-                </div>
-            </div>
-        </div>
-
         <div id="cards">
             <section id="section-futbol" class="section-1">
                 <div class="sub-title sub-futbol">
-                    <a href="/html/section-futbol.html" class="sub sub-futbol">
+                
                         <h1 class="section-name">Fútbol</h1>
-                    </a>
+                    
                 </div>
-                <article>
-                    <div class="card card-futbol">
-                        <a class="addCart" data-id="1"><img src="/img/botines-de-futbol-puma-ultra.jpg" alt="botines-de-futbol-puma-ultra" /></a>
-                        <h1 class="description">Botines Puma Ultra</h1>
-                        <p class="price">$ <span class="prc">1000</span></p>
-                        <!--<button class="button addCart" data-id="1">Añadir al Carrito <i class="material-icons add-cart">add_shopping_cart</i></button>-->
-                    </div>
-                    <div class="card card-futbol">
-                        <a class="addCart" data-id="2"><img src="/img/pelota-de-argentina-adidas.jpg" alt="pelota-de-argentina-adidas" /></a>
-                        <h1 class="description">Pelota Adidas Argentina</h1>
-                        <p class="price">$ <span class="prc">1000</span></p>
-                    </div>
-                    <div class="card card-futbol">
-                        <a class="addCart" data-id="3"><img src="/img/camiseta-de-argentina-adidas.jpg" alt="camiseta-de-argentina-adidas" /></a>
-                        <h1 class="description">Camiseta Seleccion Argentina</h1>
-                        <p class="price">$ <span class="prc">1000</span></p>
-                        
-                    </div>
+                <article id="art-futbol">
+
                 </article>
             </section>
             <section id="section-basquet" class="section-2">
                 <div class="sub-title sub-basquet">
-                    <a href="/html/section-basquet.html" class="sub sub-basquet">
+                    
                         <h1 class="section-name">Basquet</h1>
-                    </a>
+                    
                 </div>
-                <article>
-                    <div class="card card-basquet">
-                        <a class="addCart" data-id="4"><img src="/img/zapatilla-de-basquet.jpg" alt="zapatilla-de-basquet" /></a>
-                        <h1 class="description">Zapatilla de Basquet</h1>
-                        <p class="price">$ <span class="prc">1000</span></p>
-                    </div>
-                    <div class="card card-basquet">
-                        <a class="addCart" data-id="5"><img src="/img/pelota-basquet.jpg" alt="pelota-basquet" /></a>
-                        <h1 class="description">Pelota de Basquet</h1>
-                        <p class="price">$ <span class="prc">1000</span></p>
-                    </div>
-                    <div class="card card-basquet">
-                        <a class="addCart" data-id="6"><img src="/img/aro-de-basquet-profesional.jpg" alt="aro-de-basquet-profesional" /></a>
-                        <h1 class="description">Aro de Basquet profesional</h1>
-                        <p class="price">$ <span class="prc">1000</span></p>
-                    </div>
+                <article id="art-basquet">
+
                 </article>
             </section>
             <section id="section-tenis" class="section-3">
                 <div class="sub-title sub-tenis">
-                    <a href="/html/section-tenis.html" class="sub sub-tenis">
+                    
                         <h1 class="section-name">Tenis</h1>
-                    </a>
+                    
                 </div>
 
-                <article>
-                    <div class="card card-tenis">
-                        <a class="addCart" data-id="7"><img src="/img/muñequera-topper-tenis.jpg" alt="raqueta-padel" /></a>
-                        <h1 class="description">Muñequera Topper</h1>
-                        <p class="price">$ <span class="prc">1000</span></p>
-                    </div>
-                    <div class="card card-tenis">
-                        <a class="addCart" data-id="8"><img src="/img/pelota-prince.jpg" alt="pelota-wilson" /></a>
-                        <h1 class="description">Tubo de Pelota x3 Prince</h1>
-                        <p class="price">$ <span class="prc">1000</span></p>
-                    </div>
-                    <div class="card card-tenis">
-                        <a class="addCart" data-id="9"><img src="/img/raqueta-tenis.jpg" alt="raqueta-tenis" /></a>
-                        <h1 class="description">Raqueta Wilson</h1>
-                        <p class="price">$ <span class="prc">1000</span></p>
-                    </div>
+                <article id="art-tenis">
+
                 </article>
             </section>
             <section id="section-natacion" class="section-4">
                 <div class="sub-title sub-natacion">
-                    <a href="/html/section-natacion.html" class="sub sub-natacion">
+                    
                         <h1 class="section-name">Natación</h1>
-                    </a>
+                    
                 </div>
-                <article>
-                    <div class="card card-natacion">
-                        <a class="addCart" data-id="10"><img src="/img/antiparras-natacion.jpg" alt="antiparras-natacion" /></a>
-                        <h1 class="description">Antiparras Arena</h1>
-                        <p class="price">$ <span class="prc">1000</span></p>
-                    </div>
-                    <div class="card card-natacion">
-                        <a class="addCart" data-id="11"><img src="/img/gorro-natacion.jpg" alt="gorro-natacion" /></a>
-                        <h1 class="description">Gorro Speedo</h1>
-                        <p class="price">$ <span class="prc">1000</span></p>
-                    </div>
-                    <div class="card card-natacion">
-                        <a class="addCart" data-id="12"><img src="/img/patas-de-rana-natacion.jpg" alt="patas-natacion" /></a>
-                        <h1 class="description">Patas de Rana Arena</h1>
-                        <p class="price">$ <span class="prc">1000</span></p>
-                    </div>
+                <article id="art-natacion">
+
                 </article>
             </section>
         </div>
@@ -189,8 +102,8 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/js/modal.js"></script>
-    <script src="/js/carrito.js"></script>
+
+    <script src="/js/main.js"></script>
 
 </body>
 
