@@ -1,4 +1,4 @@
-// formulario
+
 const form = document.getElementById("form");
 
 // Campos
@@ -32,7 +32,7 @@ function eventListeners() {
     rating.addEventListener("blur", validate);
     email.addEventListener("blur", validate);
     email.addEventListener("keyup", validate);
-    //comment.addEventListener("blur", validate);
+    
 
     // Boton enviar
     btnSend.addEventListener("click", sendForm);
@@ -66,7 +66,7 @@ function validate() {
         gender.value !== "" &&
         rating.value !== "" &&
         email.value !== "" 
-        //comment.value !== ""
+        
     ) {
         if (mistakes.length === 0) {
             btnSend.disabled = false;
@@ -81,7 +81,7 @@ function validateLong(input) {
         if (
             input.name === "name" ||
             input.name === "surname" 
-            //input.name === "comment"
+            
         ) {
             validateCharacter(input);
         } else if (input.name === "birth" || input.name === "gender" || input.name === "rating") { //Validar solo opciones
